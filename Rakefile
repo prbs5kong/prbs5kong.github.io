@@ -6,7 +6,7 @@ require "jekyll"
 
 
 # Change your GitHub reponame
-GITHUB_REPONAME = "prbs5kong/prbs5kong.github.io"
+GITHUB_REPONAME = "minsukchang/minsukchang.github.io"
 
 
 desc "Generate homepage files"

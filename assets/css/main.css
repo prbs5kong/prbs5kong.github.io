@@ -106,7 +106,7 @@ footer.sticky-bottom { border-top: 1px solid #e8e8e8; padding-top: 40px; padding
 .publications h1 { color: var(--global-theme-color); font-size: 2rem; text-align: center; margin-top: 1em; margin-bottom: 1em; }
 .publications h2 { margin-bottom: 1rem; }
 .publications h2 span { font-size: 1.5rem; }
-.publications h2.year { color: #e8e8e8; border-top: 1px solid #e8e8e8; padding-top: 1rem; margin-top: 2rem; margin-bottom: -2rem; text-align: right; }
+.publications h2.year { color: gray; border-top: 1px solid #e8e8e8; padding-top: 1rem; margin-top: 2rem; margin-bottom: -2rem; text-align: right; }
 .publications ol.bibliography { list-style: none; padding: 0; margin-top: 0; }
 .publications ol.bibliography li { margin-bottom: 1rem; }
 .publications ol.bibliography li .abbr { height: 2rem; margin-bottom: 0.5rem; }
