@@ -982,7 +982,7 @@ mjx-c.mjx-c2212::before {
     <div class="video_wrapper">
       <div class="video_container">
         <video controls="" playsinline="" preload="auto">
-          <source src="./img/video1.mp4" type="video/mp4">
+          <source src="./img/1_1.mp4" type="video/mp4">
         </video>
         <div class="overlay">Table 1</div>
       </div>
@@ -990,7 +990,7 @@ mjx-c.mjx-c2212::before {
     <div class="video_wrapper">
       <div class="video_container">
         <video controls="" playsinline="" preload="auto">
-          <source src="./img/video2.mp4" type="video/mp4">
+          <source src="./img/1_2.mp4" type="video/mp4">
         </video>
         <div class="overlay">Table 2</div>
       </div>
@@ -998,7 +998,7 @@ mjx-c.mjx-c2212::before {
       <div class="video_wrapper">
       <div class="video_container">
         <video controls="" playsinline="" preload="auto">
-          <source src="./img/video3.mp4" type="video/mp4">
+          <source src="./img/1_3.mp4" type="video/mp4">
         </video>
         <div class="overlay">Chair</div>
       </div>
@@ -1006,7 +1006,11 @@ mjx-c.mjx-c2212::before {
 
 
   </div>
+  <p><br></p>
 
+    <div class="barplot">
+      <img src="./img/fig1.jpg">
+    </div>
   
   <p><br></p>
   
@@ -1016,21 +1020,8 @@ mjx-c.mjx-c2212::before {
       <h1>Abstract</h1>
       <div id="abstract" class="grid-item">
         <p>
-          We present a scene representation, which we call a tactile-augmented radiance field (TaRF), that brings vision
-          and touch into a shared 3D space.
-          This representation can be used to estimate the visual and tactile signals for a given 3D position within a
-          scene.
-          We capture a scene's TaRF from a collection of photos and sparsely sampled touch probes.
-          Our approach makes use of two insights: (i) common vision-based touch sensors are built on ordinary cameras
-          and thus can be registered to images using methods from multi-view geometry, and (ii) visually and
-          structurally similar regions of a scene share the same tactile features.
-          We use these insights to register touch signals to a captured visual scene, and to train a conditional
-          diffusion model that, provided with an RGB-D image rendered from a neural radiance field, generates its
-          corresponding tactile signal.
-          To evaluate our approach, we collect a dataset of TaRFs. This dataset contains more touch samples than
-          previous real-world datasets, and it provides spatially aligned visual signals for each captured touch signal.
-          We demonstrate the accuracy of our cross-modal generative model and the utility of the captured visual-tactile
-          data on several downstream tasks.
+          We study the problem of making 3D scene reconstructions interactive by asking the following question: can we predict the sounds of human hands interacting with a 3D reconstruction of scene? We focus on human hands since they are versatile in their actions (e.g., tapping, scratching, patting) and very important to simulate human-like avatars in virtual reality applications. To predict the sound of hands, we train a video and hand-conditioned rectified flow model on a novel dataset of 3D-aligned hand-scene interactions with synchronized audio. Evaluation through psychophysical studies shows that our generated sounds are frequently indistinguishable from real sounds, outperforming baselines lacking hand pose or visual scene information. Through quantitative evaluations, we show that the generated sounds accurately convey material properties and actions. We will release our code and dataset to support further development in interactive 3D reconstructions.
+
         </p>
       </div>
     </div>
@@ -1039,40 +1030,39 @@ mjx-c.mjx-c2212::before {
 
   <hr class="rounded">
   <div id="overview">
-    <h1>Capturing Vision and Touch Signals</h1>
-    <h2>Capturing Setup</h2>
-    <p>
-      We mount an RGB-D camera to one end of a rod, and a tactile sensor to the other end.
-      Next, record temporally-aligned vision-touch pairs.
-      The relative pose between the camera and the tactile sensor
-      is solved by using visual-tactile correspondences.
-      Since the camera and the tactile sensor are approximately orthogonal,
-      we first synthesize a novel view by rotating the camera 90° on the x-axis and then
-      manually annotate the correspondences between the touch measurement and synthesized frame.
-    </p>
+    <h1>Generating action-conditioned sounds</h1>
+
+
+    
     <div class="barplot">
-      <img src="./TaRF_files/setup.jpg">
+      <video src="./img/2_1.mp4" width="22%" playsinline=""></video> <caption>Real Video</caption>
+      <video src="./img/2_2.mp4" width="22%" playsinline=""></video> <caption>Synthetic Video</caption>
+      <video src="./img/2_3.mp4" width="22%" playsinline=""></video> <caption>Real Video</caption>
+      <video src="./img/2_4.mp4" width="22%" playsinline=""></video> <caption>Synthetic Video</caption>
     </div>
-    <p>
-      The calibration procedure of estimating the 6DoF relative pose
-      <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="0" style="font-size: 108.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-texatom texclass="ORD"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D411 TEX-B"></mjx-c></mjx-mi></mjx-texatom></mjx-texatom><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-texatom space="2" texclass="ORD"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D42D TEX-B"></mjx-c></mjx-mi></mjx-texatom></mjx-texatom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">R</mi></mrow></mrow><mo>,</mo><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">t</mi></mrow></mrow><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container>
-      between the camera and the tactile sensor
-      is formulated as a resectioning problem.
-      <!-- <br> -->
-      We obtain 3D points <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="1" style="font-size: 108.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c7B"></mjx-c></mjx-mo><mjx-msub><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c7D"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.288em; margin-left: 0px;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D440 TEX-I"></mjx-c></mjx-mi><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo fence="false" stretchy="false">{</mo><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mi>i</mi></msub><msubsup><mo fence="false" stretchy="false">}</mo><mrow data-mjx-texclass="ORD"><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>M</mi></msubsup></math></mjx-assistive-mml></mjx-container> for each annotated correspondences.
-      Each point has a pixel position <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="2" style="font-size: 108.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D42E TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2208"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c52 TEX-C"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">u</mi></mrow><mi>i</mi></msub><mo>∈</mo><msup><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">R</mi></mrow><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container> in the touch measurement.
-      We find <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="3" style="font-size: 108.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-texatom texclass="ORD"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D411 TEX-B"></mjx-c></mjx-mi></mjx-texatom></mjx-texatom><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-texatom space="2" texclass="ORD"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D42D TEX-B"></mjx-c></mjx-mi></mjx-texatom></mjx-texatom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">R</mi></mrow></mrow><mo>,</mo><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">t</mi></mrow></mrow><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container> by minimizing the reprojection error:
-    </p>
 
-    <p style="text-align: center;">
-      <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="4" style="font-size: 108.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-munder limits="false"><mjx-mo class="mjx-n"><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c6E"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.15em;"><mjx-texatom size="s" texclass="ORD"><mjx-texatom texclass="ORD"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D411 TEX-B"></mjx-c></mjx-mi></mjx-texatom></mjx-texatom><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-texatom texclass="ORD"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D42D TEX-B"></mjx-c></mjx-mi></mjx-texatom></mjx-texatom></mjx-texatom></mjx-script></mjx-munder><mjx-mfrac space="2"><mjx-frac><mjx-num><mjx-nstrut></mjx-nstrut><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-num><mjx-dbox><mjx-dtable><mjx-line></mjx-line><mjx-row><mjx-den><mjx-dstrut></mjx-dstrut><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D440 TEX-I"></mjx-c></mjx-mi></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac><mjx-munderover space="2" limits="false"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c2211 TEX-S1"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.285em; margin-left: 0px;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D440 TEX-I"></mjx-c></mjx-mi><mjx-spacer style="margin-top: 0.291em;"></mjx-spacer><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-munderover><mjx-mo class="mjx-n"><mjx-c class="mjx-c2016"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-texatom texclass="ORD"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40A TEX-B"></mjx-c></mjx-mi></mjx-texatom></mjx-texatom><mjx-mo class="mjx-n"><mjx-c class="mjx-c5B"></mjx-c></mjx-mo><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D411 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-mstyle><mjx-mspace style="width: 0.167em;"></mjx-mspace></mjx-mstyle><mjx-mstyle><mjx-mspace style="width: 0.167em;"></mjx-mspace></mjx-mstyle><mjx-texatom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo></mjx-texatom><mjx-mstyle><mjx-mspace style="width: 0.167em;"></mjx-mspace></mjx-mstyle><mjx-mstyle><mjx-mspace style="width: 0.167em;"></mjx-mspace></mjx-mstyle><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D42D TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-mo class="mjx-n"><mjx-c class="mjx-c5D"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D42E TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2016"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><munder><mo data-mjx-texclass="OP" movablelimits="true">min</mo><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">R</mi></mrow></mrow><mo>,</mo><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">t</mi></mrow></mrow></mrow></munder><mfrac><mn>1</mn><mi>M</mi></mfrac><munderover><mo data-mjx-texclass="OP">∑</mo><mrow data-mjx-texclass="ORD"><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>M</mi></munderover><mo data-mjx-texclass="OPEN" fence="false" stretchy="false">‖</mo><mi>π</mi><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">K</mi></mrow></mrow><mo stretchy="false">[</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">R</mi></mrow><mstyle scriptlevel="0"><mspace width="0.167em"></mspace></mstyle><mstyle scriptlevel="0"><mspace width="0.167em"></mspace></mstyle><mrow data-mjx-texclass="ORD"><mo stretchy="false">|</mo></mrow><mstyle scriptlevel="0"><mspace width="0.167em"></mspace></mstyle><mstyle scriptlevel="0"><mspace width="0.167em"></mspace></mstyle><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">t</mi></mrow><mo stretchy="false">]</mo><mo>,</mo><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mi>i</mi></msub><mo stretchy="false">)</mo><mo>−</mo><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">u</mi></mrow><mi>i</mi></msub><msub><mo data-mjx-texclass="CLOSE" fence="false" stretchy="false">‖</mo><mn>1</mn></msub><mo>,</mo></math></mjx-assistive-mml></mjx-container>
-    </p>
-    <p>
-      where <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="5" style="font-size: 108.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>π</mi></math></mjx-assistive-mml></mjx-container> is the perspective projection matrix,
-      <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="6" style="font-size: 108.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40A TEX-B"></mjx-c></mjx-mi></mjx-texatom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">K</mi></mrow></math></mjx-assistive-mml></mjx-container> is the intrinsics of the tactile sensor's camera, and
-      the point <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="7" style="font-size: 108.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mi>i</mi></msub></math></mjx-assistive-mml></mjx-container> is in the coordinate system of the generated vision frame.
-    </p>
+    <div id="video_grid_mobile">
+      <video src="./img/2_1.mp4" width="45%" playsinline=""></video> <caption>Real Video</caption>
+      <video src="./img/2_2.mp4" width="45%" playsinline=""></video> <caption>Synthetic Video</caption>
+      <video src="./img/2_3.mp4" width="45%" playsinline=""></video> <caption>Real Video</caption>
+      <video src="./img/2_4.mp4" width="45%" playsinline=""></video> <caption>Synthetic Video</caption>
+    </div>
+ 
+   <p><br></p>
 
+    <div class="barplot">
+      <video src="./img/2_5.mp4" width="22%" playsinline=""></video> <caption>Real Video</caption>
+      <video src="./img/2_6.mp4" width="22%" playsinline=""></video> <caption>Synthetic Video</caption>
+      <video src="./img/2_7.mp4" width="22%" playsinline=""></video> <caption>Real Video</caption>
+      <video src="./img/2_8.mp4" width="22%" playsinline=""></video> <caption>Synthetic Video</caption>
+    </div>
+
+    <div id="video_grid_mobile">
+      <video src="./img/2_5.mp4" width="45%" playsinline=""></video> <caption>Real Video</caption>
+      <video src="./img/2_6.mp4" width="45%" playsinline=""></video> <caption>Synthetic Video</caption>
+      <video src="./img/2_7.mp4" width="45%" playsinline=""></video> <caption>Real Video</caption>
+      <video src="./img/2_8.mp4" width="45%" playsinline=""></video> <caption>Synthetic Video</caption>
+    </div>
 
 
     <h2>A 3D Visual-Tactile Dataset</h2>
