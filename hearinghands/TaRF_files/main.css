@@ -12,6 +12,28 @@ body {
     background: rgba(255, 255, 255);
 }
 
+/*
+.barplot {
+    margin-top: 1.0vw;
+    margin-bottom: 0.0vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.barplot > .image_container {
+    max-width: 44%;
+    max-height: 22%;
+    margin-top: auto;
+    margin-bottom: auto;
+  ====================
+    display: flex;
+    justify-content: center;
+}
+
+*/
+
 #video_grid {
     display: flex;
     flex-wrap: wrap;
@@ -24,8 +46,22 @@ body {
 
 #video_grid > .video_wrapper {
     /* width: 33.3333%; */
-    width: 27%;
+    width: 17%; /*27*/
+/*  new ============================*/
+    display: flex;
+    justify-content: center;
+
 }
+
+#video_grid > .video_wrapper2 {
+    /* width: 33.3333%; */
+    width: 10%; /*27*/
+/*  new ============================*/
+    display: flex;
+    justify-content: center;
+
+}
+
 
 #video_grid > .video_wrapper > .video_container {
     display: grid;
@@ -34,7 +70,7 @@ body {
 }
 
 #video_grid > .video_wrapper > .video_container > video {
-    width: 100%;
+    width: 100%;/*100*/
     height: auto;
     grid-column: 1;
     grid-row: 1;
@@ -65,8 +101,15 @@ body {
 }
 
 .video_container:hover video {
-    filter: brightness(80%); /* Dim the video */
+    filter: brightness(80%); /* Dim the video 80*/
+
 }
+
+.video_container1:hover video {
+    filter: brightness(80%); /* Dim the video 80*/
+
+}
+
 
 .video_container:hover .overlay {
     opacity: 1; /* Show the overlay on hover */
@@ -106,6 +149,7 @@ body {
     font-weight: normal;
     text-align: center;
     font-size: 0.65vw;
+
 }
 
 .title_left > h1 {
@@ -116,12 +160,15 @@ body {
     text-align: center;
 }
 
+
 .title_middle > h1 {
     color: #2f2f2f;
     font-family: "Gelasio",Georgia,serif;
     font-weight: normal;
     font-size: 1.8vw;
     text-align: center;
+
+
 }
 
 
@@ -679,6 +726,7 @@ hr.rounded {
     margin-right: auto;
     display: flex;
     justify-content: center;
+    /*flex-wrap: wrap;*/
 }
 
 .barplot > .image_container {
@@ -686,7 +734,11 @@ hr.rounded {
     max-height: 22%;
     margin-top: auto;
     margin-bottom: auto;
+/*  ====================*/
+    display: flex;
+    justify-content: center;
 }
+
 
 .barplot > .image_container > img {
     max-width: 100%;
@@ -696,7 +748,188 @@ hr.rounded {
 
 .barplot > img {
     width: 35%;
+}   
+
+/* add ===================*/
+
+.barplot > .image_container1 {
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 0.7vw;
+
+    display: flex;
+    justify-content: center;
+
 }
+
+.barplot > .image_container1> img {
+    width:60%;
+}   
+.barplot > .image_container2 {
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 0.7vw;
+
+    display: flex;
+    justify-content: center;
+
+}
+.barplot > .image_container2> img {
+    width:80%;
+}  
+
+.barplot > .image_container3 {
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 0.7vw;
+
+    display: flex;
+    justify-content: center;
+
+}
+.barplot > .image_container3> img {
+    width:68%;
+} 
+
+.barplot > .image_container4 {
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 0.7vw;
+
+    display: flex;
+    justify-content: center;
+
+}
+.barplot > .image_container4> img {
+    width:54%;
+} 
+
+.barplot > .video_wrapper1 {
+    /* width: 33.3333%; */
+    width: 12.5%; /*27*/
+/*  new ============================*/
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.barplot > .video_wrapper1 > .video_container1 {
+    display: grid;
+    position: relative;
+    overflow: hidden;
+}
+
+.barplot > .video_wrapper1 > .video_container1 > video {
+    width: 100%;/*100*/
+    height: auto;
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    padding: 0;
+    display: block; /* Ensures the video fills its container */
+    transition: transform 0.5s ease; /* Smooth transition for dimming */
+}
+
+/*
+
+.barplot > .image_container > .caption {
+    margin-left: 0.7vw;
+    margin-bottom: 1.0vw;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}   
+============
+*/
+.barplot > .video_wrapper1 > .video_container1 > .video_caption >{
+    margin-left: 0.7vw;
+    margin-bottom: 1.0vw;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    justify-content: center;
+}   
+
+.barplot > .video_wrapper1 > .video_container1> .video_caption > p {
+    width: 100% !important;
+    #color: rgb(0, 0, 0) !important;
+    color: rgba(0, 0, 0, 0.5) !important;
+    font-family: "Avenir Next",Gelasio,Helvetica,sans-serif !important;
+    /*#font-size: 0.95vw !important;
+    #font-weight: 600 !important;
+    font-size: 0.7vw !important;
+    font-weight: 500 !important;*/
+
+    #font-size: 1vw !important;
+    #font-weight: 600 !important;
+    font-size: 1vw !important;
+    font-weight: 500 !important;
+}
+
+.barplot > .video_wrapper2 {
+    /* width: 33.3333%; */
+    width: 25%; /*27*/
+/*  new ============================*/
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.barplot > .video_wrapper2 > .video_container2 {
+    display: grid;
+    position: relative;
+    overflow: hidden;
+}
+
+.barplot > .video_wrapper2 > .video_container2 > video {
+    width: 100%;/*100*/
+    height: auto;
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    padding: 0;
+    display: block; /* Ensures the video fills its container */
+    transition: transform 0.5s ease; /* Smooth transition for dimming */
+}
+
+/*
+
+.barplot > .image_container > .caption {
+    margin-left: 0.7vw;
+    margin-bottom: 1.0vw;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}   
+============
+*/
+.barplot > .video_wrapper2 > .video_container2 > .video_caption2 >{
+    margin-left: 0.7vw;
+    margin-bottom: 1.0vw;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    justify-content: center;
+}   
+
+.barplot > .video_wrapper2 > .video_container2> .video_caption2 > p {
+    width: 100% !important;
+    #color: rgb(0, 0, 0) !important;
+    color: rgba(0, 0, 0, 0.5) !important;
+    font-family: "Avenir Next",Gelasio,Helvetica,sans-serif !important;
+    /*#font-size: 0.95vw !important;
+    #font-weight: 600 !important;
+    font-size: 0.7vw !important;
+    font-weight: 500 !important;*/
+
+    #font-size: 1vw !important;
+    #font-weight: 600 !important;
+    font-size: 1vw !important;
+    font-weight: 500 !important;
+}
+/* add end ==========================*/
 
 .barplot > .image_container > .caption {
     margin-left: 0.7vw;
@@ -705,6 +938,7 @@ hr.rounded {
     max-height: 100%;
     position: relative;
 }
+
 
 .barplot > .image_container > .caption > p {
     width: 100% !important;
@@ -1443,6 +1677,9 @@ html.w-mod-touch * {
 
     .title_left > h1 {
         font-size: 5.4vw;
+/*    */
+        margin-left: auto;
+        margin-right: auto;
 
     }
 
