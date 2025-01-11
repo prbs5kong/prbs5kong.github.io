@@ -42,6 +42,12 @@ body {
 
 #video_grid_mobile {
     display: none;
+
+}
+
+#video_grid_mobile_1 {
+    display: none;
+
 }
 
 #video_grid > .video_wrapper {
@@ -53,9 +59,30 @@ body {
 
 }
 
-#video_grid > .video_wrapper2 {
+#video_grid > .video_wrapper_1 {
+    /* width: 33.3333%; */
+    width: 15%; /*27*/
+/*  new ============================*/
+    display: flex;
+    justify-content: center;
+
+}
+
+
+#video_grid > .video_wrapper_2 {
     /* width: 33.3333%; */
     width: 10%; /*27*/
+    height: 10%;
+/*  new ============================*/
+    display: flex;
+    justify-content: center;
+
+}
+
+#video_grid > .video_wrapper_3 {
+    /* width: 33.3333%; */
+    width: 12.5%; /*27*/
+
 /*  new ============================*/
     display: flex;
     justify-content: center;
@@ -79,6 +106,146 @@ body {
     display: block; /* Ensures the video fills its container */
     transition: transform 0.5s ease; /* Smooth transition for dimming */
 }
+
+#video_grid > .video_wrapper_1 > .video_container_1 {
+    display: grid;
+    position: relative;
+    overflow: hidden;
+}
+
+#video_grid > .video_wrapper_1 > .video_container_1 > video {
+    width: 100%;/*100*/
+    height: auto;
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    padding: 0;
+    display: block; /* Ensures the video fills its container */
+    transition: transform 0.5s ease; /* Smooth transition for dimming */
+}
+
+#video_grid > .video_wrappe_1 > .video_container_1 > .video_caption >{
+    margin-left: 0.7vw;
+    margin-bottom: 1.0vw;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    justify-content: center;
+
+}   
+
+#video_grid > .video_wrapper_1 > .video_container_1> .video_caption > p {
+    width: 100% !important;
+    #color: rgb(0, 0, 0) !important;
+    color: rgba(0, 0, 0, 0.7) !important;
+    font-family: "Avenir Next",Gelasio,Helvetica,sans-serif !important;
+    /*#font-size: 0.95vw !important;
+    #font-weight: 600 !important;
+    font-size: 0.7vw !important;
+    font-weight: 500 !important;*/
+
+    #font-size: 0.95vw !important;
+    #font-weight: 600 !important;
+    font-size: 0.8vw !important;
+    font-weight: 500 !important;
+
+}
+
+#video_grid > .video_wrapper_2 > .video_container_2 {
+    display: grid;
+    position: relative;
+ /*add*/   top:3.7vw;
+    overflow: hidden;
+}
+
+#video_grid > .video_wrapper_2 > .video_container_2 > video {
+    width: 100%;/*100*/
+    /* height: auto; */
+    height: auto;
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    padding: 0;
+    display: block; /* Ensures the video fills its container */
+    transition: transform 0.5s ease; /* Smooth transition for dimming */
+}
+
+#video_grid > .video_wrapper_2 > .video_container_2 > .video_caption >{
+    margin-left: 0.7vw;
+    margin-bottom: 1.0vw;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+
+    justify-content: center;
+}   
+
+#video_grid > .video_wrapper_2 > .video_container_2> .video_caption > p {
+    width: 100% !important;
+    #color: rgb(0, 0, 0) !important;
+    color: rgba(0, 0, 0, 0.7) !important;
+    font-family: "Avenir Next",Gelasio,Helvetica,sans-serif !important;
+    /*#font-size: 0.95vw !important;
+    #font-weight: 600 !important;
+    font-size: 0.7vw !important;
+    font-weight: 500 !important;*/
+
+    #font-size: 0.95vw !important;
+    #font-weight: 600 !important;
+    font-size: 0.8vw !important;
+    font-weight: 500 !important;
+/*add*/
+
+}
+
+#video_grid > .video_wrapper_3 > .video_container_3 {
+    display: grid;
+    position: relative;
+ /*add*/   top:3.7vw;
+    overflow: hidden;
+}
+
+#video_grid > .video_wrapper_3 > .video_container_3 > video {
+    width: 100%;/*100*/
+    /* height: auto; */
+    height: auto;
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    padding: 0;
+    display: block; /* Ensures the video fills its container */
+    transition: transform 0.5s ease; /* Smooth transition for dimming */
+}
+
+#video_grid > .video_wrapper_3 > .video_container_3 > .video_caption >{
+    margin-left: 0.7vw;
+    margin-bottom: 1.0vw;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+
+    justify-content: center;
+}   
+
+#video_grid > .video_wrapper_3 > .video_container_3> .video_caption > p {
+    width: 100% !important;
+    #color: rgb(0, 0, 0) !important;
+    color: rgba(0, 0, 0, 0.7) !important;
+    font-family: "Avenir Next",Gelasio,Helvetica,sans-serif !important;
+    /*#font-size: 0.95vw !important;
+    #font-weight: 600 !important;
+    font-size: 0.7vw !important;
+    font-weight: 500 !important;*/
+
+    #font-size: 0.95vw !important;
+    #font-weight: 600 !important;
+    font-size: 0.8vw !important;
+    font-weight: 500 !important;
+/*add*/
+
+}
+
+
 
 .overlay {
     position: absolute;
@@ -104,12 +271,6 @@ body {
     filter: brightness(80%); /* Dim the video 80*/
 
 }
-
-.video_container1:hover video {
-    filter: brightness(80%); /* Dim the video 80*/
-
-}
-
 
 .video_container:hover .overlay {
     opacity: 1; /* Show the overlay on hover */
@@ -171,7 +332,7 @@ body {
 
 }
 
-
+/*--*/
 #abstract {
     mix-blend-mode: normal;
     color: #2f2f2f;
@@ -231,6 +392,35 @@ body {
     justify-items: center;
     justify-content: center;
 }
+/*    add  */
+
+.mobile-author-container-3 {
+    display: none;
+    color: #2f2f2f;
+    font-family: Gelasio,"Avenir Next",Helvetica,sans-serif;
+    font-weight: normal;
+    font-size: 1vw;
+    padding-top: 1vw;
+    justify-items: center;
+    justify-content: center;
+}
+
+.mobile-author-container-4 {
+    display: none;
+    color: #2f2f2f;
+    font-family: Gelasio,"Avenir Next",Helvetica,sans-serif;
+    font-weight: normal;
+    font-size: 1vw;
+    padding-top: 1vw;
+    justify-items: center;
+    justify-content: center;
+}
+/* add-end */
+
+
+
+
+}
 
 .grid-item {
     text-align: justify;
@@ -250,7 +440,7 @@ body {
 }
 .affiliation-item {
     text-align: center;
-    padding-right: 1.8vw;
+    padding-right: 1.5vw;   /*1.8 */
     /* padding-left: 1vw; */
 }
 .last-affiliation-item {
@@ -1612,7 +1802,7 @@ html.w-mod-touch * {
     }
     
     #video_grid_mobile > .video_wrapper {
-        width: 80%;
+        width: 30%;
     }
     
     #video_grid_mobile > .video_wrapper > .video_container {
@@ -1631,6 +1821,68 @@ html.w-mod-touch * {
         display: block; /* Ensures the video fills its container */
         transition: transform 0.5s ease; /* Smooth transition for dimming */
     }
+
+    /* add */
+
+
+    #video_grid_mobile_1 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #video_grid_mobile_1 > .video_wrapper_1 {
+        width: 20%;
+    }
+    
+    #video_grid_mobile_1 > .video_wrapper_1 > .video_container_1 {
+        display: grid;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    #video_grid_mobile_1 > .video_wrapper_1 > .video_container_1 > video {
+        width: 100%;
+        height: auto;
+        grid-column: 1;
+        grid-row: 1;
+        margin: 0;
+        padding: 0;
+        display: block; /* Ensures the video fills its container */
+        transition: transform 0.5s ease; /* Smooth transition for dimming */
+    }
+
+    #video_grid_mobile_1 > .video_wrapper_1 > .video_container_1 > .video_caption >{
+        margin-left: 0.7vw;
+        margin-bottom: 1.0vw;
+        max-width: 100%;
+        max-height: 100%;
+        position: relative;
+        justify-content: center;
+
+    }   
+
+   #video_grid_mobile_1 > .video_wrapper_1 > .video_container_1> .video_caption > p {
+    width: 100% !important;
+    #color: rgb(0, 0, 0) !important;
+    color: rgba(0, 0, 0, 0.7) !important;
+    font-family: "Avenir Next",Gelasio,Helvetica,sans-serif !important;
+    /*#font-size: 0.95vw !important;
+    #font-weight: 600 !important;
+    font-size: 0.7vw !important;
+    font-weight: 500 !important;*/
+
+    #font-size: 1.3vw !important;
+    #font-weight: 600 !important;
+    font-size: 1.3vw !important;
+    font-weight: 500 !important;
+
+
+}
+
+
+    /* add_end */
+
 
     #title_slide {
         flex-wrap: wrap;
@@ -1716,6 +1968,31 @@ html.w-mod-touch * {
         font-size: 3vw;
         grid-template-columns: 25vw 25vw 25vw 25vw;
     }
+
+/*    add */
+    .mobile-author-container-3 {
+        display: grid;
+        margin-top: 2vw;
+        font-size: 2.4vw;
+        grid-template-columns: 30vw  30vw;
+        justify-content:center;
+    }
+
+        .mobile-author-container-4 {
+        display: grid;
+        margin-top: 2vw;
+        font-size: 2.4vw;
+        grid-template-columns: 40vw;
+        justify-content:center;
+    }
+
+
+
+/* */
+
+
+
+
 
     .contribution {
         font-size: 1.33vw;
