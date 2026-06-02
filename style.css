@@ -1,0 +1,366 @@
+/* =========================================================
+   Wonseok Oh — academic single-column site
+   Inter (body) · Fraunces (name) · vivid cobalt accent
+   ========================================================= */
+
+:root {
+  --bg:         #ffffff;
+  --ink:        #16181d;
+  --ink-soft:   #545a66;
+  --line:       #e7e8ee;
+  --cobalt:     #2f5fd0;          /* comfortable cobalt — section titles & toggle */
+  --cobalt-2:   #1f47a8;
+  --cobalt-soft:#e9eefb;
+  --oral:       #e11414;          /* vivid red — for "Oral" */
+  --link:       #3b8ee8;          /* light blue (jonbarron-style, a touch lighter) */
+  --link-hover: #1772d0;
+  --photo-bg:   #ffffff;          /* fill behind the contained profile photo */
+}
+
+html[data-theme="dark"] {
+  --bg:         #0c0e14;
+  --ink:        #eceef4;
+  --ink-soft:   #a3a9b8;
+  --line:       #232634;
+  --cobalt:     #6f9aff;
+  --cobalt-2:   #9bb8ff;
+  --cobalt-soft:#172138;
+  --oral:       #ff5252;
+  --link:       #5b8cff;
+  --link-hover: #87a8ff;
+  --photo-bg:   #1a1d27;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  padding: 0 22px;            /* side gutters so content never sticks to the edges */
+  background-color: var(--bg);
+  color: var(--ink);
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* body type — Lato, medium scale; thickness comes from native (non-antialiased) rendering */
+body, td, th, tr, p, a, li {
+  font-family: "Lato", Verdana, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+strong {
+  font-family: "Lato", Verdana, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ---------- Links (light blue, subtle underline grow) ---------- */
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  position: relative;
+}
+a:hover { color: var(--link-hover); }
+a::after {
+  content: '';
+  position: absolute; width: 0; height: 1.5px; bottom: -1px; left: 0;
+  background: var(--link);
+  transition: width 0.25s ease;
+}
+a:hover::after { width: 100%; }
+
+/* ---------- Headings: cobalt blue text, no bar ---------- */
+heading {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--cobalt);
+  display: inline-block;
+  padding-bottom: 2px;
+  margin-bottom: 0px;
+}
+
+papertitle {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+university {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+honor {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+name {
+  font-family: "Fraunces", "Palatino Linotype", Palatino, serif;
+  font-weight: 600;
+  font-size: 32px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+cname {
+  font-family: 'Nanum Myeongjo', 'KaiTi', 'STKaiti', serif, "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--ink-soft);
+  margin-left: 6px;
+}
+
+.accent-strong { color: var(--oral); font-weight: 700; }
+
+span.highlight { background-color: var(--cobalt-soft); }
+
+/* ---------- Publication toggle buttons ---------- */
+.button {
+  background: color-mix(in srgb, var(--link) 14%, transparent);
+  border: 1px solid transparent;
+  border-radius: 100px;
+  padding: 4px 14px;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--link);
+  margin: 0 0.1em;
+}
+.button::after { display: none; }
+.button:hover { color: var(--link-hover); }
+.selected-button {
+  background: var(--link);
+  color: #ffffff !important;
+  border-color: transparent;
+  box-shadow: 0 2px 8px -2px color-mix(in srgb, var(--link) 55%, transparent);
+}
+
+/* ---------- Social icons ---------- */
+.social-icons a {
+  display: inline-block;
+  margin: 0 11px;
+  font-size: 23px;
+  color: var(--link);
+}
+.social-icons a:hover { color: var(--link-hover); }
+.social-icons a::after { display: none; }
+.social-icons a i { width: 23px; text-align: center; }
+
+/* ---------- Layout tables ---------- */
+.content-table {
+  width: 100%;
+  border: 0px;
+  border-spacing: 0px;
+  border-collapse: separate;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 6px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* a touch more breathing room above each section heading */
+.content-table:has(heading) { margin-top: 14px; }
+
+.section-wrapper {
+  padding: 0%;
+  width: 96%;
+  border: 0px;
+  border-spacing: 0px;
+  border-collapse: separate;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 22px;
+}
+
+.section-content {
+  padding: 0px 10px;
+  width: 100%;
+  vertical-align: middle;
+}
+/* tighten the gap between a heading and its first paragraph */
+.section-content > p:first-child { margin-top: 0; }
+/* pull each section's content closer to its heading */
+.content-table:has(heading) + .section-wrapper,
+.content-table:has(heading) + .content-table { margin-top: 0; }
+
+.publication-media {
+  padding: 12px 22px;
+  width: 30%;
+  vertical-align: middle;
+  text-align: center;
+}
+.publication-media img,
+.publication-media video {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.publication-details {
+  width: 70%;
+  vertical-align: middle;
+}
+.publication-details papertitle { line-height: 1.35; }
+
+.publication-description {
+  margin-bottom: 0px;
+  margin-top: 6px;
+  color: var(--ink-soft);
+}
+
+.experience-logo {
+  padding: 10px 24px;
+  width: 25%;
+  vertical-align: middle;
+  text-align: center;
+}
+.experience-logo .exp-logo {
+  display: inline-block;
+  max-width: 150px;
+  max-height: 92px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.years {
+  font-weight: 700;
+  color: var(--link);
+}
+
+.experience-details {
+  width: 75%;
+  vertical-align: top;
+  padding: 4px 0 10px;
+}
+
+/* ---------- Publication filtering (Recent / Others) ---------- */
+.publications-container.show-recent [data-group="others"] { display: none; }
+.publications-container.show-others [data-group="recent"] { display: none; }
+
+/* list rhythm */
+li { padding: 3px 0; }
+
+/* tight lists for Service / Selected Honors — flush to the heading */
+ul.tight { margin: 0; padding-left: 20px; }
+ul.tight li { padding: 2px 0; line-height: 1.45; }
+
+/* ---------- News: distinct boxed feed (own teal accent) ---------- */
+:root        { --news-accent: #0d9488; --news-panel: #f4fbfa; --news-line: #d3ece8; }
+html[data-theme="dark"] { --news-accent: #2dd4bf; --news-panel: #0f1b1a; --news-line: #1f3b38; }
+
+/* centered, narrower card wrapper */
+.news-block { display: flex; justify-content: center; margin: 4px 0 22px; }
+.news-card {
+  width: 100%;
+  max-width: 560px;
+  background: var(--news-panel);
+  border: 1px solid var(--news-line);
+  border-left: 3px solid var(--news-accent);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.news-card__head {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--news-accent);
+  padding: 9px 16px;
+  border-bottom: 1px solid var(--news-line);
+  background: color-mix(in srgb, var(--news-accent) 8%, transparent);
+}
+
+.news {
+  margin: 0;
+  max-height: 128px;                /* ~65% of the previous height; scrolls if it grows */
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 14px;
+  row-gap: 0;
+  align-items: baseline;
+  padding: 6px 16px;
+  font-size: 13px;                  /* slightly smaller than body */
+}
+.news dt {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: var(--news-accent);
+  white-space: nowrap;
+  padding: 6px 0;
+}
+.news dd {
+  margin: 0;
+  line-height: 1.4;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--news-line);
+}
+.news dt { border-bottom: 1px solid var(--news-line); }
+.news dt:last-of-type, .news dd:last-of-type { border-bottom: 0; }
+/* tidy scrollbar */
+.news::-webkit-scrollbar { width: 7px; }
+.news::-webkit-scrollbar-thumb { background: var(--news-line); border-radius: 4px; }
+
+@media (max-width: 768px) {
+  .news-card { max-width: 100%; }
+  .news { column-gap: 10px; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Theme toggle ---------- */
+.theme-toggle {
+  position: fixed; top: 16px; right: 16px; z-index: 100;
+  cursor: pointer; width: 36px; height: 36px; border-radius: 50%;
+  background: var(--bg); border: 1px solid var(--line); color: var(--ink);
+  font-size: 15px; display: grid; place-items: center;
+  transition: border-color 0.2s ease;
+}
+.theme-toggle::after { display: none; }
+.theme-toggle:hover { border-color: var(--cobalt); }
+html[data-theme="dark"] .theme-toggle__icon { font-size: 0; }
+html[data-theme="dark"] .theme-toggle__icon::before { content: "☀"; font-size: 15px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  name { font-size: 30px !important; }
+  cname { font-size: 20px !important; }
+  heading { font-size: 19px; }
+  .section-wrapper { padding: 5px; }
+  .publication-media,
+  .experience-logo {
+    width: 100% !important;
+    display: block;
+    padding: 6px !important;
+    text-align: left;
+  }
+  .publication-details,
+  .experience-details {
+    width: 100% !important;
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
