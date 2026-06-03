@@ -158,6 +158,7 @@ span.highlight { background-color: var(--cobalt-soft); }
   color: var(--link);
 }
 .social-icons a:hover { color: var(--link-hover); }
+.social-icons .cv-text { font-size: 21px; font-weight: 700; line-height: 1; }
 .social-icons a::after { display: none; }
 .social-icons a i { width: 23px; text-align: center; }
 
