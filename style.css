@@ -259,9 +259,9 @@ li { padding: 3px 0; }
 ul.tight { margin: 0; padding-left: 20px; }
 ul.tight li { padding: 2px 0; line-height: 1.45; }
 
-/* ---------- News: cosmic / space feed ---------- */
-:root        { --news-date: #7cc7ff; --news-line: rgba(255,255,255,0.10); --news-text: #e8ecff; }
-html[data-theme="dark"] { --news-date: #8fd0ff; --news-line: rgba(255,255,255,0.12); --news-text: #e8ecff; }
+/* ---------- News: warm orange / sunset feed ---------- */
+:root        { --news-date: #fff0d6; --news-line: rgba(255,255,255,0.22); --news-text: #fff6ec; }
+html[data-theme="dark"] { --news-date: #fff0d6; --news-line: rgba(255,255,255,0.22); --news-text: #fff6ec; }
 
 /* centered, narrower card wrapper */
 .news-block { display: flex; justify-content: center; margin: 4px 0 22px; }
@@ -271,19 +271,13 @@ html[data-theme="dark"] { --news-date: #8fd0ff; --news-line: rgba(255,255,255,0.
   border-radius: 12px;
   overflow: hidden;
   color: var(--news-text);
-  /* deep navy -> purple cosmos with a soft nebula glow + starfield */
+  /* warm sunset: amber -> coral -> rose with a soft top glow */
   background:
-    radial-gradient(120% 80% at 12% 0%, rgba(124,92,255,0.40) 0%, transparent 55%),
-    radial-gradient(90% 70% at 95% 110%, rgba(0,180,255,0.28) 0%, transparent 55%),
-    radial-gradient(1.2px 1.2px at 20% 30%, #fff 50%, transparent 52%),
-    radial-gradient(1.2px 1.2px at 65% 20%, #fff 50%, transparent 52%),
-    radial-gradient(1px 1px at 40% 70%, #cfe0ff 50%, transparent 52%),
-    radial-gradient(1.4px 1.4px at 85% 55%, #fff 50%, transparent 52%),
-    radial-gradient(1px 1px at 30% 85%, #cfe0ff 50%, transparent 52%),
-    radial-gradient(1.2px 1.2px at 75% 80%, #fff 50%, transparent 52%),
-    linear-gradient(160deg, #0b1030 0%, #14123a 45%, #1d1546 100%);
-  border: 1px solid rgba(140,140,255,0.25);
-  box-shadow: 0 10px 30px -12px rgba(60,40,160,0.55), inset 0 0 40px rgba(120,90,255,0.12);
+    radial-gradient(120% 90% at 15% 0%, rgba(255,214,120,0.55) 0%, transparent 55%),
+    radial-gradient(110% 90% at 95% 115%, rgba(214,64,90,0.45) 0%, transparent 60%),
+    linear-gradient(150deg, #ff9f43 0%, #ff7a45 45%, #f0506e 100%);
+  border: 1px solid rgba(255,180,120,0.45);
+  box-shadow: 0 12px 30px -12px rgba(240,90,80,0.55), inset 0 0 40px rgba(255,210,150,0.18);
 }
 .news-card__head {
   font-family: "Inter", sans-serif;
@@ -294,10 +288,9 @@ html[data-theme="dark"] { --news-date: #8fd0ff; --news-line: rgba(255,255,255,0.
   color: #ffffff;
   padding: 10px 18px;
   border-bottom: 1px solid var(--news-line);
-  text-shadow: 0 0 10px rgba(140,170,255,0.85), 0 0 22px rgba(120,90,255,0.5);
+  text-shadow: 0 0 10px rgba(255,180,90,0.85), 0 1px 2px rgba(150,40,40,0.45);
 }
-.news-card__head::before { content: "\2726\00a0\00a0"; color: #8fd0ff; }
-.news-card__head::after  { content: "\00a0\00a0\2726"; color: #c9a8ff; }
+.news-card__head::before { content: "\2600\00a0\00a0"; color: #fff2cc; }
 
 .news {
   margin: 0;
@@ -313,7 +306,7 @@ html[data-theme="dark"] { --news-date: #8fd0ff; --news-line: rgba(255,255,255,0.
 }
 .news dt {
   font-family: "Inter", sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 11px;
   letter-spacing: 0.04em;
   color: var(--news-date);
@@ -329,20 +322,20 @@ html[data-theme="dark"] { --news-date: #8fd0ff; --news-line: rgba(255,255,255,0.
 }
 .news dt { border-bottom: 1px solid var(--news-line); }
 .news dt:last-of-type, .news dd:last-of-type { border-bottom: 0; }
-.news a { color: #9fd4ff; }
-.news a:hover { color: #cfe6ff; }
+.news a { color: #fff; text-decoration: underline; }
+.news a:hover { color: #fff2cc; }
 
 /* Gold Reviewer highlight — bold, glowing gold */
 .gold {
   font-weight: 800;
-  color: #ffd24a;
-  text-shadow: 0 0 8px rgba(255,196,0,0.75), 0 0 16px rgba(255,170,0,0.45);
+  color: #fff1a8;
+  text-shadow: 0 0 8px rgba(255,235,120,0.95), 0 0 16px rgba(255,200,60,0.6);
   letter-spacing: 0.01em;
 }
 
 /* tidy scrollbar */
 .news::-webkit-scrollbar { width: 7px; }
-.news::-webkit-scrollbar-thumb { background: rgba(160,160,255,0.4); border-radius: 4px; }
+.news::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.45); border-radius: 4px; }
 
 @media (max-width: 768px) {
   .news-card { max-width: 100%; }
