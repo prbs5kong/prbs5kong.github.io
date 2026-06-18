@@ -259,25 +259,27 @@ li { padding: 3px 0; }
 ul.tight { margin: 0; padding-left: 20px; }
 ul.tight li { padding: 2px 0; line-height: 1.45; }
 
-/* ---------- News: warm orange / sunset feed ---------- */
-:root        { --news-date: #fff0d6; --news-line: rgba(255,255,255,0.22); --news-text: #fff6ec; }
-html[data-theme="dark"] { --news-date: #fff0d6; --news-line: rgba(255,255,255,0.22); --news-text: #fff6ec; }
+/* ---------- News: cosmos feed (real night-sky photo) ---------- */
+:root        { --news-date: #9fd0ff; --news-line: rgba(255,255,255,0.16); --news-text: #eef2ff; }
+html[data-theme="dark"] { --news-date: #9fd0ff; --news-line: rgba(255,255,255,0.16); --news-text: #eef2ff; }
 
 /* centered, narrower card wrapper */
 .news-block { display: flex; justify-content: center; margin: 4px 0 22px; }
 .news-card {
+  position: relative;
   width: 100%;
   max-width: 560px;
   border-radius: 12px;
   overflow: hidden;
   color: var(--news-text);
-  /* warm sunset: amber -> coral -> rose with a soft top glow */
+  /* real Milky Way night-sky photo, darkened for legibility */
   background:
-    radial-gradient(120% 90% at 15% 0%, rgba(255,214,120,0.55) 0%, transparent 55%),
-    radial-gradient(110% 90% at 95% 115%, rgba(214,64,90,0.45) 0%, transparent 60%),
-    linear-gradient(150deg, #ff9f43 0%, #ff7a45 45%, #f0506e 100%);
-  border: 1px solid rgba(255,180,120,0.45);
-  box-shadow: 0 12px 30px -12px rgba(240,90,80,0.55), inset 0 0 40px rgba(255,210,150,0.18);
+    linear-gradient(180deg, rgba(6,8,22,0.55) 0%, rgba(6,8,22,0.70) 100%),
+    url("assets/img/night_sky.jpg");
+  background-size: cover, cover;
+  background-position: center 35%, center 35%;
+  border: 1px solid rgba(150,170,255,0.30);
+  box-shadow: 0 12px 32px -12px rgba(20,20,60,0.7), inset 0 0 50px rgba(0,0,0,0.45);
 }
 .news-card__head {
   font-family: "Inter", sans-serif;
@@ -288,9 +290,10 @@ html[data-theme="dark"] { --news-date: #fff0d6; --news-line: rgba(255,255,255,0.
   color: #ffffff;
   padding: 10px 18px;
   border-bottom: 1px solid var(--news-line);
-  text-shadow: 0 0 10px rgba(255,180,90,0.85), 0 1px 2px rgba(150,40,40,0.45);
+  text-shadow: 0 0 10px rgba(150,180,255,0.9), 0 0 20px rgba(110,90,255,0.5);
 }
-.news-card__head::before { content: "\2600\00a0\00a0"; color: #fff2cc; }
+.news-card__head::before { content: "\2726\00a0\00a0"; color: #aee0ff; }
+.news-card__head::after  { content: "\00a0\00a0\2726"; color: #c9b3ff; }
 
 .news {
   margin: 0;
@@ -306,12 +309,13 @@ html[data-theme="dark"] { --news-date: #fff0d6; --news-line: rgba(255,255,255,0.
 }
 .news dt {
   font-family: "Inter", sans-serif;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 11px;
   letter-spacing: 0.04em;
   color: var(--news-date);
   white-space: nowrap;
   padding: 7px 0;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
 .news dd {
   margin: 0;
@@ -319,23 +323,24 @@ html[data-theme="dark"] { --news-date: #fff0d6; --news-line: rgba(255,255,255,0.
   padding: 7px 0;
   color: var(--news-text);
   border-bottom: 1px solid var(--news-line);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
 .news dt { border-bottom: 1px solid var(--news-line); }
 .news dt:last-of-type, .news dd:last-of-type { border-bottom: 0; }
-.news a { color: #fff; text-decoration: underline; }
-.news a:hover { color: #fff2cc; }
+.news a { color: #bfe0ff; }
+.news a:hover { color: #e6f2ff; }
 
 /* Gold Reviewer highlight — bold, glowing gold */
 .gold {
   font-weight: 800;
-  color: #fff1a8;
-  text-shadow: 0 0 8px rgba(255,235,120,0.95), 0 0 16px rgba(255,200,60,0.6);
+  color: #ffd24a;
+  text-shadow: 0 0 8px rgba(255,196,0,0.9), 0 0 16px rgba(255,170,0,0.55);
   letter-spacing: 0.01em;
 }
 
 /* tidy scrollbar */
 .news::-webkit-scrollbar { width: 7px; }
-.news::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.45); border-radius: 4px; }
+.news::-webkit-scrollbar-thumb { background: rgba(160,180,255,0.45); border-radius: 4px; }
 
 @media (max-width: 768px) {
   .news-card { max-width: 100%; }
