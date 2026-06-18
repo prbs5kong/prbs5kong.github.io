@@ -292,8 +292,7 @@ html[data-theme="dark"] { --news-date: #9fd0ff; --news-line: rgba(255,255,255,0.
   border-bottom: 1px solid var(--news-line);
   text-shadow: 0 0 10px rgba(150,180,255,0.9), 0 0 20px rgba(110,90,255,0.5);
 }
-.news-card__head::before { content: "\2726\00a0\00a0"; color: #aee0ff; }
-.news-card__head::after  { content: "\00a0\00a0\2726"; color: #c9b3ff; }
+.news-card__head::before { content: "\01F30C\00a0\00a0"; }
 
 .news {
   margin: 0;
