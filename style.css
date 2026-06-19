@@ -272,15 +272,22 @@ html[data-theme="dark"] { --news-date: #9fd0ff; --news-line: rgba(255,255,255,0.
   border-radius: 12px;
   overflow: hidden;
   color: var(--news-text);
-  /* real Milky Way night-sky photo with a light, soft wash (galaxy stays visible) */
-  background:
-    linear-gradient(180deg, rgba(10,12,28,0.10) 0%, rgba(10,12,28,0.20) 100%),
-    url("assets/img/night_sky.jpg");
-  background-size: cover, cover;
-  background-position: center 35%, center 35%;
+  /* soft, semi-transparent panel; galaxy photo sits on a faint layer below */
+  background: rgba(18,20,38,0.45);
   border: 1px solid rgba(150,170,255,0.20);
   box-shadow: 0 12px 32px -14px rgba(20,20,60,0.45), inset 0 0 50px rgba(0,0,0,0.30);
 }
+/* faint, transparent galaxy image layer */
+.news-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url("assets/img/night_sky.jpg") center 35% / cover no-repeat;
+  opacity: 0.35;               /* picture itself made transparent */
+  pointer-events: none;
+}
+.news-card > * { position: relative; z-index: 1; }
 .news-card__head {
   font-family: "Inter", sans-serif;
   font-weight: 800;
