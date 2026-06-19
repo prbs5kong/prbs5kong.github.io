@@ -272,14 +272,14 @@ html[data-theme="dark"] { --news-date: #9fd0ff; --news-line: rgba(255,255,255,0.
   border-radius: 12px;
   overflow: hidden;
   color: var(--news-text);
-  /* real Milky Way night-sky photo, darkened for legibility */
+  /* real Milky Way night-sky photo, softened & muted for a subtle look */
   background:
-    linear-gradient(180deg, rgba(6,8,22,0.55) 0%, rgba(6,8,22,0.70) 100%),
+    linear-gradient(180deg, rgba(8,10,24,0.86) 0%, rgba(8,10,24,0.92) 100%),
     url("assets/img/night_sky.jpg");
   background-size: cover, cover;
   background-position: center 35%, center 35%;
-  border: 1px solid rgba(150,170,255,0.30);
-  box-shadow: 0 12px 32px -12px rgba(20,20,60,0.7), inset 0 0 50px rgba(0,0,0,0.45);
+  border: 1px solid rgba(150,170,255,0.18);
+  box-shadow: 0 12px 32px -14px rgba(20,20,60,0.5), inset 0 0 50px rgba(0,0,0,0.35);
 }
 .news-card__head {
   font-family: "Inter", sans-serif;
