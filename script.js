@@ -15,34 +15,6 @@
     setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark");
   });
 
-  /* ---------- Profile photo: play GIF on hover ---------- */
-  const photo = document.getElementById("profilePhoto");
-  if (photo && photo.dataset.hoverSrc) {
-    const stillSrc = photo.getAttribute("src");
-    const hoverSrc = photo.dataset.hoverSrc;
-    let hoverReady = false;
-    let hovering = false;
-
-    /* Fetch the GIF after the page has settled so it never delays first paint. */
-    window.addEventListener("load", function () {
-      const pre = new Image();
-      pre.onload = function () {
-        hoverReady = true;
-        if (hovering) photo.setAttribute("src", hoverSrc);
-      };
-      pre.src = hoverSrc;
-    });
-
-    photo.addEventListener("mouseenter", function () {
-      hovering = true;
-      if (hoverReady) photo.setAttribute("src", hoverSrc);
-    });
-    photo.addEventListener("mouseleave", function () {
-      hovering = false;
-      photo.setAttribute("src", stillSrc);
-    });
-  }
-
   /* ---------- Publications: Recent / Others ---------- */
   const container = document.getElementById("publications_list");
   const btnRecent = document.getElementById("btn-recent");
